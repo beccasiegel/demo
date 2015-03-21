@@ -5,7 +5,7 @@
 <strong><font FACE="arial" size = 6>DAPA/DACA Outreach Targeting</font></strong>
 </body>  
   <style>
-    #map-canvas { width:1000px; height:400px; }
+    #map-canvas { width:1200px; height:500px; }
     .layer-wizard-search-label { font-family: sans-serif };
 }
 
@@ -20,7 +20,7 @@
     function initialize() {
       map = new google.maps.Map(document.getElementById('map-canvas'), {
         center: new google.maps.LatLng(37.8377834703127, -78.6020606757813),
-        zoom: 8,
+        zoom: 7,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
       layer_1 = new google.maps.FusionTablesLayer({
