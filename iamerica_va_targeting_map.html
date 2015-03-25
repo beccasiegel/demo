@@ -25,11 +25,13 @@
           <option value="Government">Government</option>
           <option value="Library">Library</option>
           <option value="School">School</option>
-        </select>
+          <option value="Retail">Retail</option>
+>        </select>
       </label> 
     </div>
   <style>
 
+  
   html, body {
     width: 100%;
     height: 100%;
@@ -42,7 +44,7 @@
     background: -moz-linear-gradient(right, rgba(247,252,252,1), rgba(147,166,207,1), rgba(77,0,75,1)); /* For Firefox 3.6 to 15 */
     background: linear-gradient(to right, rgba(247,252,252,1) , rgba(147,166,207,1), rgba(77,0,75,1)); /* Standard syntax (must be last) */
 }
-    #map-canvas { width:100%; height:80%; }
+    #map-canvas { width:100%; height:85%; }
     .layer-wizard-search-label { font-family: sans-serif };
   </style>
   <script type="text/javascript"
@@ -54,10 +56,24 @@
     var layer_1;
     function initialize() {
       map = new google.maps.Map(document.getElementById('map-canvas'), {
-        center: new google.maps.LatLng(37.847482636520596, -78.63901135937505),
-        zoom: 7,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        center: new google.maps.LatLng(37.57514113126228, -77.4935811257324),
+        zoom: 7
       });
+      var style = [
+        {
+          featureType: 'all',
+          elementType: 'all',
+          stylers: [
+            { saturation: 9 }
+          ]
+        }
+      ];
+      var styledMapType = new google.maps.StyledMapType(style, {
+        map: map,
+        name: 'Styled Map'
+      });
+      map.mapTypes.set('map-style', styledMapType);
+      map.setMapTypeId('map-style');
       layer_0 = new google.maps.FusionTablesLayer({
         query: {
           select: "col21",
@@ -70,9 +86,9 @@
       });
       layer_1 = new google.maps.FusionTablesLayer({
         query: {
-          select: "col3",
-          from: "1tgoBdz9IUDRlLhOc5FR7CWdObyBjacYyAZF0wZIt",
-          where: " col1 not in (' None', 'Library', 'Church', 'Government', 'School')"
+          select: "col4",
+          from: "1g1hhDZJe0dv1sIGBe2OevTh09aqZj8ts_hVv_RrG",
+          where: " col2 not in ('Library', 'Church', 'Government', 'Retail', 'School')"
         },
         map: map,
         styleId: 2,
@@ -94,15 +110,15 @@
       });
     }
     function changeMap_1() {
-      var whereClause = " col1 in (' None', 'Library', 'Church', 'Government', 'School')";
+      var whereClause = " col2 in ('Library', 'Church', 'Government', 'Retail', 'School')";
       var searchString = document.getElementById('search-string_1').value.replace(/'/g, "\\'");
       if (searchString != '--Select--') {
-        whereClause += " AND 'FEATTYPE' = '" + searchString + "'";
+        whereClause += " AND 'marker' = '" + searchString + "'";
       }
       layer_1.setOptions({
         query: {
-          select: "col3",
-          from: "1tgoBdz9IUDRlLhOc5FR7CWdObyBjacYyAZF0wZIt",
+          select: "col4",
+          from: "1g1hhDZJe0dv1sIGBe2OevTh09aqZj8ts_hVv_RrG",
           where: whereClause
         }
       });
