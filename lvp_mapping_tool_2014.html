@@ -1,0 +1,117 @@
+<HTML>
+<head>
+
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.5/mapbox.css' rel='stylesheet' />
+
+
+<!-- <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css' rel='stylesheet' /> -->
+</head>
+
+<body>
+<!--legend -->
+<style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+.legend label,
+.legend span {
+  display:block;
+  float:left;
+  height:15px;
+  width:20%;
+  text-align:center;
+  font-size:9px;
+  color:#808080;
+  }
+</style>
+
+<!-- Set the display of this container to none so we can
+     add it programmatically to `legendControl` -->
+<div id='legend' style='display:none;'>
+  <strong>Percent Hispanic</strong>
+  <nav class='legend clearfix'>
+    <span style='background:rgba(240,240,240,0.5);'></span>
+    <span style='background:rgba(189,189,189,0.5);'></span>
+    <span style='background:rgba(115,115,115,0.5);'></span>
+    <span style='background: rgba(37,37,37,0.5);'></span>
+    <span style='background: rgba(0,0,0,0.5);'></span>
+    <label>0 - 20%</label>
+    <label>40%</label>
+    <label>60%</label>
+    <label>80%</label>
+    <label>100%</label>
+    <small>Source: <a href="http://www.census.gov">US Census</a></small>
+      
+    <br> 
+    <br>    
+    <strong>Hispanic Representation</strong>
+    <br>    
+    <span style='background:rgba(251,128,114,0.6);'></span><small>Majority Hispanic, Non-Hispanic Representation</small>
+    <span style='background:rgba(141,211,199,0.6);'></span><small>Majority Hispanic, Hispanic Representation</small>
+    <span style='background:rgba(141,160,203,0.6);'></span><small>Minority Hispanic, Hispanic Representation</small> 
+    <small>Source: <a href="http://neworganizing.com/">The New Organizing Institute</a></small>
+</div>
+        
+        
+<div id='map'></div>    
+
+
+<script type="text/javascript">
+  L.mapbox.accessToken = 'pk.eyJ1IjoiYmx1ZWxhYnMiLCJhIjoiOVp6cnNQMCJ9.94boS6rLdn-UFdkyixdTGA';
+  var map = L.mapbox.map('map').setView([38.8922,-90.0348], 5);
+
+  L.mapbox.tileLayer('bluelabs.lakmg8n8').addTo(map);
+  //Legend
+  map.legendControl.addLegend(document.getElementById('legend').innerHTML);
+
+  //Layers toggle
+
+
+  L.control.layers({
+      'Congressional Districts': L.mapbox.tileLayer('bluelabs.a9543637').addTo(map),
+     // 'Counties': L.mapbox.tileLayer('bluelabs.6afd6744'),
+     // 'Upper State Legislative Districts': L.mapbox.tileLayer('bluelabs.0e6e6045'),
+     // 'Lower State Legislative Districts': L.mapbox.tileLayer('bluelabs.1622a09b')
+  }, {
+      'Hispanic Representation in Congressional Districts': L.mapbox.tileLayer('bluelabs.c7d83ef0').addTo(map),
+      //'Hispanic Representation in Counties': L.mapbox.tileLayer('bluelabs.2e3684bc'),
+      //'Hispanic Representation in Upper State Legislative Districts': L.mapbox.tileLayer('bluelabs.2eab0320'),
+      //'Hispanic Representation in Lower State Legislative Districts': L.mapbox.tileLayer('bluelabs.68915c03'), 
+  }).addTo(map);
+
+
+
+  var ui = document.getElementById('map-ui');
+
+  var cd_labels = L.mapbox.tileLayer('bluelabs.lo09ej13');
+  //var county_labels = L.mapbox.tileLayer('bluelabs.le33gbf6');
+  //var slu_labels = L.mapbox.tileLayer('bluelabs.le33bh27');
+  //var sll_labels = L.mapbox.tileLayer('bluelabs.le33klcl');
+
+  addLayer(cd_labels, L.mapbox.gridLayer('bluelabs.le336kch'),'cd_labels', 1);
+  //addLayer(county_labels, L.mapbox.gridLayer('bluelabs.le33gbf6'),'county_labels', 2);
+  //addLayer(slu_labels, L.mapbox.gridLayer('bluelabs.le33bh27'),'slu_labels', 3);
+  //addLayer(sll_labels, L.mapbox.gridLayer('bluelabs.le33klcl'),'sll_labels', 4);
+
+  function addLayer(layer, gridlayer, name, zIndex) {
+      layer
+          .setZIndex(zIndex)
+          .addTo(map);
+      gridlayer
+          .addTo(map);
+      // add the gridControl to the active gridlayer
+      var gridControl = L.mapbox.gridControl(gridlayer, {follow: false}).addTo(map);
+      
+      var item = document.createElement('li');
+      var link = document.createElement('a');
+      
+  }
+
+</script>
+
+</body>    
+
+</HTML>
