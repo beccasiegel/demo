@@ -64,6 +64,8 @@ body { margin:0; padding:0; }
   var map = L.mapbox.map('map').setView([38.8922,-90.0348], 5);
 
   L.mapbox.tileLayer('bluelabs.lakmg8n8').addTo(map);
+  L.mapbox.tileLayer('bluelabs.a9543637').addTo(map);
+
   //Legend
   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
@@ -71,7 +73,7 @@ body { margin:0; padding:0; }
 
 
   L.control.layers({
-      'Congressional Districts': L.mapbox.tileLayer('bluelabs.a9543637').addTo(map),
+     // 'Congressional Districts': L.mapbox.tileLayer('bluelabs.a9543637').addTo(map),
      // 'Counties': L.mapbox.tileLayer('bluelabs.6afd6744'),
      // 'Upper State Legislative Districts': L.mapbox.tileLayer('bluelabs.0e6e6045'),
      // 'Lower State Legislative Districts': L.mapbox.tileLayer('bluelabs.1622a09b')
