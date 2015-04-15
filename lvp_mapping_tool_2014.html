@@ -44,8 +44,7 @@ body { margin:0; padding:0; }
     <label>80%</label>
     <label>100%</label>
     <small>Source: <a href="http://www.census.gov">US Census</a></small>
-      
-    <br> 
+    <br>
     <br>    
     <strong>Hispanic Representation</strong>
     <br>    
@@ -53,6 +52,8 @@ body { margin:0; padding:0; }
     <span style='background:rgba(141,211,199,0.6);'></span><small>Majority Hispanic, Hispanic Representation</small>
     <span style='background:rgba(141,160,203,0.6);'></span><small>Minority Hispanic, Hispanic Representation</small> 
     <small>Source: <a href="http://neworganizing.com/">The New Organizing Institute</a></small>
+
+    <img src="https://lh4.googleusercontent.com/sPTsL3jZ1CuQ3uRtPXch1PbThusl4Bclsip-cpHQTfVBSYkyoj5jcERGzkD05B6k6AZlAPZJbIzI0uo=w1896-h847" style = "float:right;width:50%; height:40px">
 </div>
         
         
@@ -65,7 +66,6 @@ body { margin:0; padding:0; }
 
   L.mapbox.tileLayer('bluelabs.lakmg8n8').addTo(map);
   L.mapbox.tileLayer('bluelabs.a9543637').addTo(map);
-
   //Legend
   map.legendControl.addLegend(document.getElementById('legend').innerHTML);
 
@@ -73,7 +73,7 @@ body { margin:0; padding:0; }
 
 
   L.control.layers({
-     // 'Congressional Districts': L.mapbox.tileLayer('bluelabs.a9543637').addTo(map),
+      //'Congressional Districts': L.mapbox.tileLayer('bluelabs.a9543637').addTo(map),
      // 'Counties': L.mapbox.tileLayer('bluelabs.6afd6744'),
      // 'Upper State Legislative Districts': L.mapbox.tileLayer('bluelabs.0e6e6045'),
      // 'Lower State Legislative Districts': L.mapbox.tileLayer('bluelabs.1622a09b')
