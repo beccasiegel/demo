@@ -28,8 +28,7 @@ body { margin:0; padding:0; }
   }
 </style>
 
-<!-- Set the display of this container to none so we can
-     add it programmatically to `legendControl` -->
+<!-- LEGEND -->
 <div id='legend' style='display:none;'>
   <strong>Percent Hispanic</strong>
   <nav class='legend clearfix'>
@@ -51,9 +50,9 @@ body { margin:0; padding:0; }
     <span style='background:rgba(251,128,114,0.6);'></span><small>Majority Hispanic, Non-Hispanic Representation</small>
     <span style='background:rgba(141,211,199,0.6);'></span><small>Majority Hispanic, Hispanic Representation</small>
     <span style='background:rgba(141,160,203,0.6);'></span><small>Minority Hispanic, Hispanic Representation</small> 
-    <small>Source: <a href="http://neworganizing.com/">The New Organizing Institute</a></small>
-
-    <img src="https://media.licdn.com/media/p/3/005/00b/2f2/151565f.png" style = "float:right;width:50%; height:50px">
+    <span style='background:rgba(0,0,0,0); border:2px solid #525252;'></span><small>Hispanic or Latino Candidate in 2014</small>
+    <a href="http://www.bluelabs.com/" target="_blank"><img src="https://media.licdn.com/media/p/3/005/00b/2f2/151565f.png" style = "float:right;width:50%; height:50px"></a>
+    <a href="http://www.latinovictory.us/" target="_blank"><img src="http://www.latinovictory.us/wp-content/uploads/2014/01/LOGO.png" style = "float:right; width:40%; height:40pm"></a>
 </div>
         
         
@@ -79,10 +78,13 @@ body { margin:0; padding:0; }
      // 'Lower State Legislative Districts': L.mapbox.tileLayer('bluelabs.1622a09b')
   }, {
       'Hispanic Representation in Congressional Districts': L.mapbox.tileLayer('bluelabs.c7d83ef0').addTo(map),
+      'Districts with Hispanic or Latino Candidates in 2014': L.mapbox.tileLayer('bluelabs.lpj3eai4'),
       //'Hispanic Representation in Counties': L.mapbox.tileLayer('bluelabs.2e3684bc'),
       //'Hispanic Representation in Upper State Legislative Districts': L.mapbox.tileLayer('bluelabs.2eab0320'),
       //'Hispanic Representation in Lower State Legislative Districts': L.mapbox.tileLayer('bluelabs.68915c03'), 
-  }).addTo(map);
+  },
+  {collapsed:false}
+  ).addTo(map);
 
 
 
