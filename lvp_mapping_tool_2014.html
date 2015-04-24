@@ -92,11 +92,13 @@ body { margin:0; padding:0; }
   //var ui = document.getElementById('map-ui');
 
   var cd_labels = L.mapbox.tileLayer('bluelabs.lo09ej13');
+  var cd_stories = L.mapbox.tileLayer('bluelabs.lo09ej13')
   //var county_labels = L.mapbox.tileLayer('bluelabs.le33gbf6');
   //var slu_labels = L.mapbox.tileLayer('bluelabs.le33bh27');
   //var sll_labels = L.mapbox.tileLayer('bluelabs.le33klcl');
 
   addLayer(cd_labels, L.mapbox.gridLayer('bluelabs.ozoj38fr'),'cd_labels', 1);
+  addLayer(cd_stories, L.mapbox.gridLayer('bluelabs.vqcfecdi'), 'cd_stories', 2);
   //addLayer(county_labels, L.mapbox.gridLayer('bluelabs.le33gbf6'),'county_labels', 2);
   //addLayer(slu_labels, L.mapbox.gridLayer('bluelabs.le33bh27'),'slu_labels', 3);
   //addLayer(sll_labels, L.mapbox.gridLayer('bluelabs.le33klcl'),'sll_labels', 4);
