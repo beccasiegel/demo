@@ -58,7 +58,7 @@ body { margin:0; padding:0; }
     <span style='background:rgba(141,211,199,0.6);'></span><small> Majority Hispanic, Hispanic Representation</small><br>
     <span style='background:rgba(141,160,203,0.6);'></span><small> Minority Hispanic, Hispanic Representation</small><br> 
     <span style= 'background-image: linear-gradient(to left top,transparent 50%,rgba(180,180,180,0.4) 50%,rgba(180,180,180,0.4) 66%,transparent 66%);background-size: 4px 10px;'></span><small> No Data Available</small> <br>
-    <span style='background:rgba(0,0,0,0); border:2px dotted #525252;'></span><small> Latino Congressional Candidate in 2014</small>
+    <!--<span style='background:rgba(0,0,0,0); border:2px dotted #525252;'></span><small> Latino Congressional Candidate in 2014</small>-->
     <a href="http://www.bluelabs.com/" target="_blank"><img src="https://media.licdn.com/media/p/3/005/00b/2f2/151565f.png" style = "float:right;width:50%; height:50px"></a>
     <a href="http://www.latinovictory.us/" target="_blank"><img src="http://www.latinovictory.us/wp-content/uploads/2014/01/LOGO.png" style = "float:right; width:40%; height:40pm"></a>
 </div>
@@ -83,11 +83,14 @@ body { margin:0; padding:0; }
       cd_electeds = L.mapbox.tileLayer('bluelabs.f771de07'),
       county_electeds = L.mapbox.tileLayer('bluelabs.7f773eaa'),
       slu_electeds = L.mapbox.tileLayer('bluelabs.d08ece68'),
-      sll_electeds = L.mapbox.tileLayer('bluelabs.721a0bc2'),
-      cd_latino_candidates = L.mapbox.tileLayer('bluelabs.59f10a83')
+      sll_electeds = L.mapbox.tileLayer('bluelabs.721a0bc2')
+      //cd_latino_candidates = L.mapbox.tileLayer('bluelabs.59f10a83')
 
 
-  var cd = L.layerGroup([cd_demo, cd_electeds, cd_latino_candidates]);
+  var cd = L.layerGroup([cd_demo, 
+                        cd_electeds 
+                        //cd_latino_candidates
+                        ]);
   var county = L.layerGroup([county_demo, county_electeds]);
   var slu = L.layerGroup([slu_demo, slu_electeds]);
   var sll = L.layerGroup([sll_demo, sll_electeds]);
